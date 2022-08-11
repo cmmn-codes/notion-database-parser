@@ -1,9 +1,9 @@
 {
   "name": "notion-database-parser",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "A library to help parse structured data from notion databases",
   "private": false,
-  "author": "",
+  "author": "Benjamin Forster",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -45,5 +45,16 @@
   },
   "dependencies": {
     "common-expectations": "^1.0.1"
-  }
+  },
+  "keywords": [
+    "notion",
+    "parser",
+    "schema",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmmn-codes/notion-database-parser"
+  },
+  "homepage": "https://github.com/cmmn-codes/notion-database-parser"
 }
