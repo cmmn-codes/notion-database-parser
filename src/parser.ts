@@ -21,21 +21,28 @@ type ValuesFromMap<M extends ParserMap> = {
   [K in NotionPropertyType]: ReturnType<M[K]>;
 };
 
-type SchemaReturnType<S extends Schema, M extends ParserMap> = {
+type Flatten<T> = T extends Date
+  ? T
+  : T extends object
+  ? { [K in keyof T]: Flatten<T[K]> }
+  : T;
+
+type SchemaReturnType<S extends Schema, M extends ParserMap> = Flatten<{
   [K in keyof S]: ValuesFromMap<M>[S[K]['type']];
-};
+}>;
 
 class Parser<M extends ParserMap, S extends Schema> {
   constructor(private readonly map: M, private readonly schema: S) {}
 
   parseQueryDatabaseResponse(
     response: QueryDatabaseResponse
-  ): SchemaReturnType<S, M>[] {
+  ): (SchemaReturnType<S, M> & { id: string })[] {
     return response.results.map((result) => {
       if (!isFullDatabaseObject(result)) {
         throw new Error('Encountered partial database object.');
       }
-      return this.parse(result.properties);
+      const obj = this.parse(result.properties);
+      return Object.assign(obj, { id: result.id });
     });
   }
 
@@ -49,9 +56,9 @@ class Parser<M extends ParserMap, S extends Schema> {
       if (!fn) {
         throw new Error('No parser provided for type');
       }
-      (acc as any)[key] = fn(value as any);
+      acc[key] = fn(value as any);
       return acc;
-    }, {} as SchemaReturnType<S, M>);
+    }, {} as any);
   }
 }
 
