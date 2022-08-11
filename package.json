@@ -11,8 +11,8 @@
     "dev": "tsc -p tsconfig.build.esm.json -w",
     "lint": "eslint src/.",
     "lint:fix": "eslint --fix src/.",
-    "prepublishOnly": "yarn lint && yarn test && yarn build",
-    "preversion": "yarn lint && yarn test && yarn build"
+    "prepublishOnly": "yarn lint && yarn build",
+    "preversion": "yarn lint && yarn build"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -28,6 +28,11 @@
       "require": "./dist/cjs/index.js"
     }
   },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
   "devDependencies": {
     "@notionhq/client": "^1.0.4",
     "@typescript-eslint/eslint-plugin": "5.31.0",
