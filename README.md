@@ -4,7 +4,7 @@ A schema and parser api for reading Notion Database Objects into custom typed ob
 
 ## Install
 
-**THIS LIBRARY IS A WORK IN PROGRESS AND IS NOT PUBLISHED YET!**
+**THIS LIBRARY IS A WORK IN PROGRESS AND IS LIKELY TO UNDERGO MAJOR CHANGES!**
 
 ```shell
 npm install --save 'notion-database-parser'
