@@ -1,29 +1,13 @@
 import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints.js';
 
-type AllKeys<T> = T extends never ? never : keyof T;
-type OptionalKeys<T> = Exclude<AllKeys<T>, keyof T>;
-type Idx<T, K extends PropertyKey, D = never> = T extends never
-  ? never
-  : K extends keyof T
-  ? T[K]
-  : D;
+export type PartialDatabaseResult = QueryDatabaseResponse['results'][number];
 
-type Widen<T> = {
-  [K in OptionalKeys<T>]?: Idx<T, K>;
-} & { [K in keyof T]: T[K] };
-
-type NotionDatabaseQueryResult = Widen<
-  QueryDatabaseResponse['results'][number]
->;
-
-type NotionDatabaseQueryPropertiesType = Extract<
-  QueryDatabaseResponse['results'][number],
+export type DatabaseResult = Extract<
+  PartialDatabaseResult,
   { properties: any }
 >;
 
-export type NotionPageProperties = NonNullable<
-  NotionDatabaseQueryPropertiesType['properties']
->;
+export type NotionPageProperties = DatabaseResult['properties'];
 export type NotionPagePropertiesValues = NotionPageProperties[string];
 
 export type NotionPropertyType = NotionPagePropertiesValues['type'];

@@ -3,7 +3,8 @@ import {
   NotionPropertyType,
 } from './type-hacks.js';
 import { Schema } from './schema.js';
-import { isFullUser } from './guards.js';
+import { isFullDatabaseObject, isFullUser } from './guards.js';
+import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints.js';
 
 type InferInput<K extends PropertyKey> = Extract<
   NotionPagePropertiesValues,
@@ -26,6 +27,17 @@ type SchemaReturnType<S extends Schema, M extends ParserMap> = {
 
 class Parser<M extends ParserMap, S extends Schema> {
   constructor(private readonly map: M, private readonly schema: S) {}
+
+  parseQueryDatabaseResponse(
+    response: QueryDatabaseResponse
+  ): SchemaReturnType<S, M>[] {
+    return response.results.map((result) => {
+      if (!isFullDatabaseObject(result)) {
+        throw new Error('Encountered partial database object.');
+      }
+      return this.parse(result.properties);
+    });
+  }
 
   parse(record: RecordType): SchemaReturnType<S, M> {
     return Object.entries(this.schema).reduce((acc, [key, desc]) => {
