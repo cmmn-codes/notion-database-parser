@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "rootDir": "./src/",
+    "baseUrl": ".",
+    "declaration": true,
+    "composite": false,
+    "noEmit": true,
+//    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "moduleResolution": "nodenext",
+    "module": "nodenext",
+    "outDir": "./dist/"
+  },
+  "include": [
+    "./src/"
+  ],
+  "exclude": [
+     "node_modules/**"
+  ]
+}

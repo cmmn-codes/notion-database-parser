@@ -1,0 +1,45 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    "no-restricted-properties": [
+      "error",
+      {
+        "object": "it",
+        "property": "skip",
+        "message": "Don't commit skipped tests"
+      },
+      {
+        "object": "it",
+        "property": "only",
+        "message": "Don't commit focused tests"
+      },
+      {
+        "object": "describe",
+        "property": "skip",
+        "message": "Don't commit skipped tests"
+      },
+      {
+        "object": "describe",
+        "property": "only",
+        "message": "Don't commit focused tests"
+      }
+    ]
+  },
+  "overrides": [
+    
+  ]
+}

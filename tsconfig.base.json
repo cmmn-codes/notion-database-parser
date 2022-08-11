@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "rootDir": "./src/",
+    "baseUrl": ".",
+    "declaration": true,
+    "composite": false,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "outDir": "./dist/"
+  },
+  "include": [
+    "./src/"
+  ],
+  "exclude": [
+     "node_modules/**"
+  ]
+}

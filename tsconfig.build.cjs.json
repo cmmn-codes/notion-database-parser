@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src/",
+    "baseUrl": ".",
+    "declaration": true,
+    "composite": false,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "outDir": "./dist/cjs/"
+  },
+  "include": [
+    "./src/"
+  ],
+  "exclude": [
+     "node_modules/**"
+  ]
+}
