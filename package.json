@@ -34,7 +34,7 @@
     "README.md"
   ],
   "devDependencies": {
-    "@notionhq/client": "^1.0.4",
+    "@notionhq/client": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "5.31.0",
     "@typescript-eslint/parser": "5.31.0",
     "eslint": "8.20.0",
@@ -46,7 +46,7 @@
     "typescript": "4.7.4"
   },
   "peerDependencies": {
-    "@notionhq/client": "^1.0.4"
+    "@notionhq/client": "^2.2.1"
   },
   "dependencies": {
     "common-expectations": "^1.0.1"

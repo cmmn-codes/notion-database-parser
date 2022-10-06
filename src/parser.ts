@@ -111,6 +111,7 @@ export class ParserBuilder<M extends ParserMap> {
       last_edited_time: notImplementedFunction,
       created_by: notImplementedFunction,
       created_time: notImplementedFunction,
+      status: notImplementedFunction,
     });
   }
 
