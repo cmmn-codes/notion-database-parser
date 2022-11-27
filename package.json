@@ -1,6 +1,6 @@
 {
   "name": "notion-database-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A library to help parse structured data from notion databases",
   "private": false,
   "author": "Benjamin Forster",
