@@ -12,13 +12,7 @@ npm install --save 'notion-database-parser'
 
 ### Dependencies
 
-* `@notionhq/client`: "^1.0.4"
-
-Note that this library is not intended for use with Notion SDK v2.
-Notion removed the ability to retrieve page properties which makes it prohibitively difficult to query databases.
-See: https://github.com/makenotion/notion-sdk-js/issues/334
-
-Until this issues is resolved this library will not be updated to support `@notionhq/client@2`.
+* `@notionhq/client`: "^2.2.1"
 
 ## Why
 
